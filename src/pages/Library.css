@@ -1,0 +1,84 @@
+.library {
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.library-header {
+  margin-bottom: 30px;
+}
+
+.library-header h1 {
+  font-size: 32px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.library-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.library-section h2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.library-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.library-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 0;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.library-item:hover {
+  background-color: #272727;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.library-icon {
+  width: 24px;
+  height: 24px;
+  color: #fff;
+}
+
+.library-item span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .library {
+    padding: 10px;
+  }
+  
+  .library-header h1 {
+    font-size: 24px;
+  }
+  
+  .video-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+}

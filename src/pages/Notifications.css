@@ -1,0 +1,163 @@
+.notifications-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.notifications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.notifications-header h1 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.mark-all-read {
+  background: none;
+  border: none;
+  color: #065fd4;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.mark-all-read:hover {
+  background-color: #f0f8ff;
+}
+
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+.notification-item:hover {
+  background-color: #f9f9f9;
+}
+
+.notification-item.unread {
+  background-color: #f0f8ff;
+}
+
+.notification-icon {
+  margin-right: 12px;
+  margin-top: 4px;
+}
+
+.notification-type-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.notification-type-icon.like {
+  color: #ff0000;
+}
+
+.notification-type-icon.comment {
+  color: #065fd4;
+}
+
+.notification-type-icon.subscribe {
+  color: #00c851;
+}
+
+.notification-type-icon.upload {
+  color: #ff6900;
+}
+
+.notification-thumbnail {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.notification-thumbnail img {
+  width: 60px;
+  height: 45px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 4px 0;
+  color: #0f0f0f;
+}
+
+.notification-description {
+  font-size: 13px;
+  color: #606060;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.notification-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: #606060;
+}
+
+.notification-channel {
+  font-weight: 500;
+}
+
+.notification-time::before {
+  content: "•";
+  margin-right: 8px;
+}
+
+.unread-indicator {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  background-color: #065fd4;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .notifications-page {
+    padding: 15px;
+  }
+  
+  .notifications-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .notification-item {
+    padding: 12px;
+  }
+  
+  .notification-thumbnail img {
+    width: 50px;
+    height: 38px;
+  }
+}
