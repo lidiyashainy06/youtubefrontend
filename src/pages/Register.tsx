@@ -18,15 +18,40 @@ const Register: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match');
       return;
     }
-    // Simulate successful registration
-    console.log('Register:', formData);
-    navigate('/');
+    
+    try {
+      const API_URL = process.env.NODE_ENV === 'production' 
+        ? 'https://youtube-backend-evdg.onrender.com/api/register'
+        : 'http://localhost:5000/api/register';
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          password: formData.password
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        alert('Registration successful!');
+        navigate('/login');
+      } else {
+        alert(data.message || 'Registration failed');
+      }
+    } catch (error) {
+      alert('Network error. Please try again.');
+    }
   };
 
   return (

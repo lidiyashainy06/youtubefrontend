@@ -16,11 +16,31 @@ const Login: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate successful login
-    console.log('Login:', formData);
-    navigate('/');
+    try {
+      const API_URL = process.env.NODE_ENV === 'production' 
+        ? 'https://youtube-backend-evdg.onrender.com/api/login'
+        : 'http://localhost:5000/api/login';
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        alert('Login successful!');
+        navigate('/');
+      } else {
+        alert(data.message || 'Login failed');
+      }
+    } catch (error) {
+      alert('Network error. Please try again.');
+    }
   };
 
   return (
